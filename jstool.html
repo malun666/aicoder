@@ -12,15 +12,31 @@
         width: 200px;
     }
     </style>
+
+    <script>
+    onload  = function () {
+        var btnEncodeURI = document.getElementById("js-btnEncoderURI"),
+            btnEncoderURIComp = document.getElementById("js-btnEncoderURIComponent"),
+            txtSrcURI = document.getElementById("js-txt-srcURI"),
+            txtResult = document.getElementById("js-txtURIEncodeResult");
+        btnEncodeURI.onclick = function (e) {
+            txtResult.value = encodeURI(txtSrcURI.value);
+        } 
+        btnEncoderURIComp.onclick = function (e) {
+            txtResult.value = encodeURIComponent(txtSrcURI.value);
+        }
+    }
+    </script>
 </head>
 <body>
     <div class="encode-wrap">
-        <textarea name="txtSruURI" id="" cols="30" rows="5"></textarea>
+        <textarea id="js-txt-srcURI" name="txtSruURI" id="" cols="30" rows="5"></textarea>
         <div class="encode-btn-wrap">
-           <input type="button" value="编码encoderURI==>">
-            <input type="button" value="编码encoderURIComponent==>"> 
+           <input id="js-btnEncoderURI" type="button" value="编码encoderURI==>">
+            <input id="js-btnEncoderURIComponent"  type="button" value="编码encoderURIComponent==>"> 
         </div>        
-        <textarea name="txtSruURI" id="" cols="30" rows="5"></textarea>
+        <textarea id="js-txtURIEncodeResult" name="txtURIEncodeResult" id="" cols="30" rows="5"></textarea>
     </div>
+
 </body>
 </html>
