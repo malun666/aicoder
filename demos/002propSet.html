@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>test the ec5 set prop demos</title>
+    <script>
+        function Persion() {
+            this._Name = "default";
+            this.show = function () {
+                console.log(this.Name);
+            };
+        }
+        var p = new Persion();
+        Object.defineProperty(p, "Name", {
+            //value: "shit",
+            configurable: false,
+            get: function () {
+                console.log("get");
+                return this._Name;
+            },
+            set: function (val) {
+                console.log("set");
+                this._Name = val;
+            }
+        });
+
+        p.Name = "demo";
+        p.show();
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
