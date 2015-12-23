@@ -287,7 +287,7 @@ ProgressBar.prototype = {
 		});
 
 		var txt = this.group.findOne('.txt');
-		txt.text( '努力加载中：' + Number(val).toFixed(2) * 100 + '%');
+		txt.text( '努力加载中：' + (val * 100 + ' ').split('.')[0] + '%');
 
 		this.drawLayer.batchDraw();
 	},	
