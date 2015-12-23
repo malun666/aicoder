@@ -1,9 +1,13 @@
 // 场景
 function ItcastScence( options ) {
     this.stage = options.stage;
+    //执行场景的初始化
     this.init = options.init || ItcastScence.voidFn;
+    //执行场景的进场动画
     this.pre = options.pre || ItcastScence.voidFn;
+    //执行场景的出场动画
     this.post = options.post || ItcastScence.voidFn;
+
     this.layers = options.layers || [new Konva.Layer()];
     this.name = options.name || '';
     this.init();
@@ -13,23 +17,26 @@ ItcastScence.prototype = {
 	constructor: ItcastScence,
 	voidFn: function() {},
 	CurrentScence: null,
+	//场景要进入舞台，只需要调用场景的 play方法。
 	play: function () {
-         var _this = this,
-                doPre,
-                doPre = function doPre() {
-                    // stage.add(_this.layer);// 把当前层添加到舞台
-                    _this.layers.forEach(function( val ){
-                        _this.stage.add( val );
-                    });
-                    ItcastScence.currentScene = _this;
-                    _this.pre();
-                };
+        var _this = this;
+                // doPre,
+	    var doPre = function doPre() {
+            // stage.add(_this.layer);// 把当前层添加到舞台
+            _this.layers.forEach(function( val ){
+                _this.stage.add( val );
+            });
+            ItcastScence.currentScene = _this;
+            _this.pre();
+        };
 
+        //如果不是第一个场景，先执行当前场景的出场动画，然后执行下一个场景的入场动画
+        //需要在场景的post方法中执行传进去的 next 方法。
         if (ItcastScence.currentScene) {
             //执行上一个场景的出场动画
             ItcastScence.currentScene.post(doPre);
         } else {
-            //执行当前入场动画
+            //如果是第一个场景直接执行入场动画
             doPre();
         }
     }// play
@@ -38,16 +45,16 @@ ItcastScence.prototype = {
 
 //=============>S=============柱状图数据demo
 // var data = [{ 
-// 				name: '百度', value: .2, color: 'lightgreen'
-// 			},{
-// 				name: '阿里', value: .4, color: 'lightgreen'
-// 			},{
-// 				name: '新浪', value: .1, color: 'lightgreen'
-// 			},{
-// 				name: '搜狐', value: .1, color: 'lightgreen'
-// 			},{
-// 				name: '360', value: .2, color: 'lightgreen'
-// 			}];
+	// 	name: '百度', value: .2, color: 'lightgreen'
+	// },{
+	// 	name: '阿里', value: .4, color: 'lightgreen'
+	// },{
+	// 	name: '新浪', value: .1, color: 'lightgreen'
+	// },{
+	// 	name: '搜狐', value: .1, color: 'lightgreen'
+	// },{
+	// 	name: '360', value: .2, color: 'lightgreen'
+	// }];
 
 //柱状图构造函数
 function Histogram(option) {

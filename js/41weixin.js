@@ -125,7 +125,7 @@ function builderSceneLoading() {
 				easing: Konva.Easings.EaseIn,
 				onFinish: function() {
 					//移除加载场景
-					animateLayer.remove();
+					animateLayer.destroy();
 				}
 			});
 			tween.play();
@@ -288,7 +288,7 @@ function builderSceneHistogram() {
 				easing: Konva.Easings.EaseIn,
 				onFinish: function() {
 					_this.layers.forEach(function(layer) {
-						layer.remove();
+						layer.destroy();
 					});
 					// animateLayer.remove();
 					next();//执行下一场景
@@ -475,7 +475,7 @@ function builderScenePieChart() {
 				onFinish: function() {
 					// animateLayer.remove();
 					_this.layers.forEach(function(layer) {
-						layer.remove();
+						layer.destroy();
 					});
 					next();//执行下一场景
 				}
@@ -659,7 +659,7 @@ function builderSceneTextRect() {
 				onFinish: function() {
 					// animateLayer.remove();
 					_this.layers.forEach(function(layer) {
-						layer.remove();
+						layer.destroy();
 					});
 					next();//执行下一场景
 				}
