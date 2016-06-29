@@ -1,0 +1,63 @@
+.ulmain {
+  list-style: none;
+  overflow: hidden;
+  padding-left: 0;
+}
+.ulmain li {
+  list-style: none;
+  float: left;
+}
+
+/*--------main--------------*/
+.head-wrap {
+  position: relative;
+}
+
+.head-img {
+  position: absolute;
+  right: 4em;
+  top: 2em;
+  width: 10em;
+  height: 10em;
+  animation: revolving 2s 0s infinite;
+}
+
+.head-img img {
+  height: 100%;
+  width: 100%;
+}
+
+@keyframes revolving{
+  0,50%{
+    transform: perspective(700px) rotatZ(180deg);
+  }
+  100%{
+    transform: perspective(700px) rotateZ(360deg);
+  }
+}
+
+/*--------main--------------*/
+.main-article {
+  padding: 1em;
+}
+
+.main-article .tag-list, .main-article .tag-list li {
+}
+
+.main-article .tag-list li {
+  float: left;
+  padding-right: 1em;
+}
+
+
+/*---------aside-----------------*/
+.aside-panel {
+  padding: 1em;
+}
+.aside-panel, .aside-panel a {
+  color: #303030;
+}
+
+.aside-art-list li{
+  text-overflow: ellipsis;
+}

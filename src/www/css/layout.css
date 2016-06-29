@@ -1,0 +1,27 @@
+body {
+  min-width: 320px;
+  background-color: #ebebeb;
+}
+
+.navbar {
+  margin-bottom: 0;
+}
+
+/**
+* 设置底部区域
+*/
+.footer, .footer a {
+  color: #f0f0f0;
+}
+
+.footer {
+  background-color: #202020;
+}
+
+.footer .footer-logo {
+  width: 4rem;
+}
+
+.footer .footer-logo {
+  margin-top: 2rem;
+}

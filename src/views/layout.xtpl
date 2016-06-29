@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <!--设置兼容的设置兼容-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马伦的个人blog，老马是典型的全栈工程师，涉猎广泛，C、C++、C#、JavaScript、Go、数据库、NoSql、架构、互联网等。乐为人师，善于总结，讲解知识点通透直捣要害！">
+    <meta name="keywords" content="前端,全栈,个人blog,C#,分享">
+    <meta name="author" content="aicoder官网">
+    <meta name="robots" content="index,follow">
+    <meta name="application-name" content="aicoder.com" />
+
+    <title>{{title}}</title>
+
+    <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
+    <link href="/lib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!--IE10 viewport hack for Surface/desktop Windows 8 bug-->
+    <!-- <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet" /> -->
+
+    <script src="/lib/jquery.min.js"></script>
+    <script src="/lib/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/js/ie-emulation-modes-warning.js"></script>
+
+    <!--[if lt IE 9]>
+        <script src="/js/ie8-responsive-file-warning.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    {{{block('head')}}}
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+</head>
+
+<body>
+    <!--网站导航区域-->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <!--导航logo区域-->
+            <div class="navbar-header">
+                <a class="navbar-brand logo-text" href="http://aicoder.com">
+                    <span class="logo-txt">AICODER</span>
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                
+                <li class="active">
+                    <a href="http://aicoder.com">首页</a>
+                </li>
+                <li><a href="/blogs/index">文章</a></li>
+                <li><a href="/github">github</a></li>
+                <li><a href="/contact">联系我</a></li>
+                <li><a href="/about">关于我</a></li>
+                <li><a href="/chance">机会</a></li>
+              </ul>
+              <div class="nav navbar-nav navbar-right">
+                  <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                      <input type="search" class="form-control" placeholder="Smart Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">搜索</button>
+                  </form>
+              </div>  
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+            <!--左边导航项区域-->
+        </div>  <!--end- container-->
+
+    </nav>
+
+
+    {{block('body')}}
+    <!-- => S   底部区域 -->
+    <div class="footer clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <a href="/"><img class="footer-logo" src="/imgs/logo.png" alt="logo"></a>
+                    <p><a href="/">aicoder.com</p></a>
+                </div>
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <dl class="footer-link">
+                                <dt class="caption">
+                                    <a href="#">
+                                        <h3>社区</h3>
+                                    </a>
+                                </dt>
+                                <dd class=""><a href="https://cnodejs.org/">CNode社区</a></dd>
+                                <dd><a href="http://www.w3cfuns.com/">w3cfuns</a></dd>
+                                <dd><a href="https://developer.mozilla.org/en-US/">MDN</a></dd>
+                                <dd><a href="http://it-ebooks.info/">最新书-全免费</a></dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-3">
+                            <dl class="footer-link">
+                                <dt class="caption">
+                                    <a href="#">
+                                        <h3>前端blog</h3>
+                                    </a>
+                                </dt>
+                                <dd class=""><a href="http://www.zhangxinxu.com/">张鑫旭</a></dd>
+                                <dd><a href="http://www.ruanyifeng.com/blog/">阮一峰</a></dd>
+                                <dd><a href="https://github.com/ecomfe/spec">前端规范</a></dd>
+                                <dd><a href="http://fex.baidu.com/">百度前端</a></dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-3">
+                            <dl class="footer-link">
+                                <dt class="caption">
+                                    <a href="#">
+                                        <h3>学习链接</h3>
+                                    </a>
+                                </dt>
+                                <dd class=""><a href="http://github.com">github</a></dd>
+                                <dd><a href="http://v3.bootcss.com/">bootstrap</a></dd>
+                                <dd><a href="http://stackoverflow.com/">stackoverflow</a></dd>
+                                <dd><a href="https://segmentfault.com/">segmentfault</a></dd>
+                            </dl>
+                        </div>
+                        <div class="col-md-3">
+                            <dl class="footer-link">
+                                <dt class="caption">
+                                    <a href="#">
+                                        <h3>关于</h3>
+                                    </a>
+                                </dt>
+                                <dd class=""><a href="#">关于我们</a></dd>
+                                <dd><a href="#">广告合作</a></dd>
+                                <dd><a href="#">联系地址</a></dd>
+                                <dd><a href="/chance">机会</a></dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--引入js脚本区域-->
+    <script src="js/index.js"></script>
+</body>
+
+</html>
