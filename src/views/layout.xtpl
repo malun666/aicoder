@@ -32,7 +32,7 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    {{{block('head')}}}
+    {{block('head')}}
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="shortcut icon" href="favicon.ico" />
 </head>
@@ -43,7 +43,7 @@
         <div class="container">
             <!--导航logo区域-->
             <div class="navbar-header">
-                <a class="navbar-brand logo-text" href="http://aicoder.com">
+                <a target="_blank" class="navbar-brand logo-text" href="http://aicoder.com">
                     <span class="logo-txt">AICODER</span>
                 </a>
             </div>
@@ -52,13 +52,13 @@
               <ul class="nav navbar-nav">
                 
                 <li class="active">
-                    <a href="http://aicoder.com">首页</a>
+                    <a target="_blank" href="http://aicoder.com">首页</a>
                 </li>
-                <li><a href="http://www.cnblogs.com/fly_dragon/">文章</a></li>
-                <li><a href="https://github.com/malun666/">github</a></li>
-                <li><a href="http://www.cnblogs.com/fly_dragon/">联系我</a></li>
-                <li><a href="/about">关于我</a></li>
-                <li><a href="/chance">机会</a></li>
+                <li><a target="_blank" href="http://www.cnblogs.com/fly_dragon/">文章</a></li>
+                <li><a target="_blank" href="https://github.com/malun666/">github</a></li>
+                <li class="hidden-md hidden-xs  hidden-sm"><a target="_blank" href="http://www.cnblogs.com/fly_dragon/">联系我</a></li>
+                <li><a target="_blank" href="/about">关于我</a></li>
+                <li class="hidden-md hidden-xs hidden-sm"><a target="_blank" href="/chance">机会</a></li>
               </ul>
               <div class="nav navbar-nav navbar-right">
                   <form class="navbar-form navbar-left" role="search">
@@ -82,61 +82,61 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2">
-                    <a href="/"><img class="footer-logo" src="/imgs/logo.png" alt="logo"></a>
-                    <p><a href="/">aicoder.com</p></a>
+                    <a target="_blank" href="/"><img class="footer-logo" src="/imgs/logo.png" alt="logo"></a>
+                    <p><a target="_blank" href="/">aicoder.com</p></a>
                 </div>
                 <div class="col-md-10">
                     <div class="row">
                         <div class="col-md-3">
                             <dl class="footer-link">
                                 <dt class="caption">
-                                    <a href="#">
+                                    <a target="_blank" href="#">
                                         <h3>社区</h3>
                                     </a>
                                 </dt>
-                                <dd class=""><a href="https://cnodejs.org/">CNode社区</a></dd>
-                                <dd><a href="http://www.w3cfuns.com/">w3cfuns</a></dd>
-                                <dd><a href="https://developer.mozilla.org/en-US/">MDN</a></dd>
-                                <dd><a href="http://it-ebooks.info/">最新书-全免费</a></dd>
+                                <dd class=""><a target="_blank" href="https://cnodejs.org/">CNode社区</a></dd>
+                                <dd><a target="_blank" href="http://www.w3cfuns.com/">w3cfuns</a></dd>
+                                <dd><a target="_blank" href="https://developer.mozilla.org/en-US/">MDN</a></dd>
+                                <dd><a target="_blank" href="http://it-ebooks.info/">最新书-全免费</a></dd>
                             </dl>
                         </div>
                         <div class="col-md-3">
                             <dl class="footer-link">
                                 <dt class="caption">
-                                    <a href="#">
+                                    <a target="_blank" href="#">
                                         <h3>前端blog</h3>
                                     </a>
                                 </dt>
-                                <dd class=""><a href="http://www.zhangxinxu.com/">张鑫旭</a></dd>
-                                <dd><a href="http://www.ruanyifeng.com/blog/">阮一峰</a></dd>
-                                <dd><a href="https://github.com/ecomfe/spec">前端规范</a></dd>
-                                <dd><a href="http://fex.baidu.com/">百度前端</a></dd>
+                                <dd class=""><a target="_blank" href="http://www.zhangxinxu.com/">张鑫旭</a></dd>
+                                <dd><a target="_blank" href="http://www.ruanyifeng.com/blog/">阮一峰</a></dd>
+                                <dd><a target="_blank" href="https://github.com/ecomfe/spec">前端规范</a></dd>
+                                <dd><a target="_blank" href="http://fex.baidu.com/">百度前端</a></dd>
                             </dl>
                         </div>
                         <div class="col-md-3">
                             <dl class="footer-link">
                                 <dt class="caption">
-                                    <a href="#">
+                                    <a target="_blank" href="#">
                                         <h3>学习链接</h3>
                                     </a>
                                 </dt>
-                                <dd class=""><a href="http://github.com">github</a></dd>
-                                <dd><a href="http://v3.bootcss.com/">bootstrap</a></dd>
-                                <dd><a href="http://stackoverflow.com/">stackoverflow</a></dd>
-                                <dd><a href="https://segmentfault.com/">segmentfault</a></dd>
+                                <dd class=""><a target="_blank" href="http://github.com">github</a></dd>
+                                <dd><a target="_blank" href="http://v3.bootcss.com/">bootstrap</a></dd>
+                                <dd><a target="_blank" href="http://stackoverflow.com/">stackoverflow</a></dd>
+                                <dd><a target="_blank" href="https://segmentfault.com/">segmentfault</a></dd>
                             </dl>
                         </div>
                         <div class="col-md-3">
                             <dl class="footer-link">
                                 <dt class="caption">
-                                    <a href="#">
+                                    <a target="_blank" href="#">
                                         <h3>关于</h3>
                                     </a>
                                 </dt>
-                                <dd class=""><a href="#">关于我们</a></dd>
-                                <dd><a href="#">广告合作</a></dd>
-                                <dd><a href="#">联系地址</a></dd>
-                                <dd><a href="/chance">机会</a></dd>
+                                <dd class=""><a target="_blank" href="#">关于我们</a></dd>
+                                <dd><a target="_blank" href="#">广告合作</a></dd>
+                                <dd><a target="_blank" href="#">联系地址</a></dd>
+                                <dd><a target="_blank" href="/chance">机会</a></dd>
                             </dl>
                         </div>
                     </div>
@@ -145,8 +145,7 @@
         </div>
     </div>
 
-    <!--引入js脚本区域-->
-    <script src="js/index.js"></script>
+   
 </body>
 
 </html>

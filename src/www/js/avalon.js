@@ -5516,11 +5516,11 @@ var filters = avalon.filters = {
     },
     camelize: camelize,
     //https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
-    //    <a href="javasc&NewLine;ript&colon;alert('XSS')">chrome</a> 
-    //    <a href="data:text/html;base64, PGltZyBzcmM9eCBvbmVycm9yPWFsZXJ0KDEpPg==">chrome</a>
-    //    <a href="jav	ascript:alert('XSS');">IE67chrome</a>
-    //    <a href="jav&#x09;ascript:alert('XSS');">IE67chrome</a>
-    //    <a href="jav&#x0A;ascript:alert('XSS');">IE67chrome</a>
+    //    <a target="_blank" href="javasc&NewLine;ript&colon;alert('XSS')">chrome</a> 
+    //    <a target="_blank" href="data:text/html;base64, PGltZyBzcmM9eCBvbmVycm9yPWFsZXJ0KDEpPg==">chrome</a>
+    //    <a target="_blank" href="jav	ascript:alert('XSS');">IE67chrome</a>
+    //    <a target="_blank" href="jav&#x09;ascript:alert('XSS');">IE67chrome</a>
+    //    <a target="_blank" href="jav&#x0A;ascript:alert('XSS');">IE67chrome</a>
     sanitize: function(str) {
         return str.replace(rscripts, "").replace(ropen, function(a, b) {
             var match = a.toLowerCase().match(/<(\w+)\s/)

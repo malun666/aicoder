@@ -1,0 +1,72 @@
+{{extend('./layout')}}
+
+{{#block ('head')}}
+<link rel="stylesheet" href="/css/about.css">
+{{/block}}
+
+{{#block ('body')}}
+<div class="container">
+  <div class="panel about-panel">
+    <div class="page-header">
+      <h1>自序<small>老马的自我简评</small></h1>
+    </div>
+    <div class="page-body">
+        <p>
+          南山下，码农一枚。酷爱编程，乐于分享。
+      </p>
+      <p>
+          06年开始接触编程，致力于更好的分享技术，分享人生。
+      </p>
+      <p>
+        程序老鸟，初心不改！依然喜欢写代码到深夜，最喜欢深夜代码伴随着的键盘声。
+      </p>
+    </div>
+    
+      <hr>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class=>喜欢钻研的技术</h3>
+        </div>
+        <div class="panel-body">
+            <span class="btn btn-success">JavaScript</span>
+            <span class="btn btn-success">NoSql</span>
+            <span class="btn btn-info">C#</span>
+            <span class="btn btn-success">DotNet</span>
+            <span class="btn btn-warning">CSS</span>
+            <span class="btn btn-danger">NodeJS</span>
+            <span class="btn btn-success">Go</span>
+            <span class="btn btn-info">Redis</span>
+            <span class="btn btn-success">互联网架构</span>
+            <span class="btn btn-success">MySql</span>
+            <span class="btn btn-success">git</span>
+            <span class="btn btn-success">nginx</span>
+            <span class="btn btn-success">linux</span>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-heading">
+          <h3 class=>常用到的工具</h3>
+        </div>
+        <div class="panel-body">
+            <span class="btn btn-success">sublime</span>
+            <span class="btn btn-success">WebStorm</span>
+            <span class="btn btn-info">VSCode</span>
+            <span class="btn btn-success">VS</span>
+            <span class="btn btn-warning">GIT</span>
+            <span class="btn btn-danger">github</span>
+            <span class="btn btn-success">npm</span>
+            <span class="btn btn-info">yum</span>
+            <span class="btn btn-success">homebrew</span>
+            <span class="btn btn-success">chrome</span>
+            <span class="btn btn-success">有道</span>
+            <span class="btn btn-success">nginx</span>
+            <span class="btn btn-success">gitbook</span>
+            <span class="btn btn-success">onenote</span>
+        </div>
+      </div>
+
+  </div>
+</div>
+{{/block}}

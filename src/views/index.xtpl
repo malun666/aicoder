@@ -5,7 +5,8 @@
 <link rel="stylesheet" href="/lib/animate.css">
 {{/block}}
 
-{{{#block ('body') }}}
+
+{{#block ('body') }}
 {{! --------头部的大幕区域--------start------ }}
 <div class="container head-wrap">
   <div class="jumbotron animated fadeInLeftBig">
@@ -32,10 +33,10 @@
         <hr>
         <ul class="tag-list ulmain">
           <li> <span class="glyphicon glyphicon-tags"></span></li>
-          <li><a href="">教材</a></li>
-          <li><a href="">教材</a></li>
-          <li><a href="">教材</a></li>
-          <li><a href="">教材</a></li>
+          <li><a target="_blank" href="">教材</a></li>
+          <li><a target="_blank" href="">教材</a></li>
+          <li><a target="_blank" href="">教材</a></li>
+          <li><a target="_blank" href="">教材</a></li>
         </ul>
       </article>
 
@@ -49,31 +50,31 @@
         <hr>
         <ul class="tag-list ulmain">
           <li> <span class="glyphicon glyphicon-tags"></span></li>
-          <li><a href="">教材</a></li>
-          <li><a href="">教材</a></li>
-          <li><a href="">教材</a></li>
-          <li><a href="">教材</a></li>
+          <li><a target="_blank" href="">教材</a></li>
+          <li><a target="_blank" href="">教材</a></li>
+          <li><a target="_blank" href="">教材</a></li>
+          <li><a target="_blank" href="">教材</a></li>
         </ul>
       </article>
     </main>
     <aside class="col-md-4 col-sm-4 hidden-xs visiable-lg-block visiable-md-block">
       <div class="panel aside-panel">
       <ul class="aside-art-list ulmain">
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
+        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
       </ul>
 
       </div>
@@ -87,4 +88,6 @@
    
   });
 </script>
+<!--引入js脚本区域-->
+<script src="/js/index.js"></script>
 {{/block}}
