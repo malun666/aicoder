@@ -1,88 +1,81 @@
 {{extend( './layout' )}}
 
-{{#block ('head') }}
-<link href="/css/index.css" rel="stylesheet">
-<link rel="stylesheet" href="/lib/animate.css">
-{{/block}}
+{{#block ('head')}}
+<link href="/css/index.css" rel="stylesheet"/>
+<link rel="stylesheet" href="/lib/animate.css"/>
+{{/block }}
 
 
-{{#block ('body') }}
+{{#block ('body')}}
 {{! --------头部的大幕区域--------start------ }}
 <div class="container head-wrap">
   <div class="jumbotron animated fadeInLeftBig">
-    <h2 class="head-title ">生命在于分享，技术源于生命</h2>
-    <p>学无止境，谦虚慎行，三人行必有我师</p>
+    <h2 class="head-title ">
+      生命在于分享，技术源于生命
+    </h2>
+    <p>
+      学无止境，谦虚慎行，三人行必有我师
+    </p>
   </div>
   <div class="head-img hidden-xs">
-    <img src="/imgs/logo.png" alt="">
+    <img src="/imgs/logo.png" alt=""/>
   </div>
 </div>
 {{! --------头部的大幕区域--------end------ }}
-
 {{! --------文章列表区域--------start------ }}
 <div class="container">
   <div class="row">
     <main class="col-md-8 col-sm-8 col-xs-12">
+    {{#each(items)}}
       <article class="panel main-article">
-        <h2>2016 版 Laravel 系列入门教程（一）</h2>
-        <p>作者：JohnLui • 2016年6月6日</p>
-        <img src="/imgs/item_0.jpg" alt="">
-        <p>本教程示例代码见：https://github.com/johnlui/Learn-Laravel-5 在任何地方卡住，最快的办法就是去看示例代码。 本文基于 Laravel 5.2 版本，无奈 5.2 的中文文档还没有跟上，大家勉强看一下 5.1 的吧： Laravel 5.1 中文文档</p>
-        
-        <span class="btn btn-primary">查看原文</span>
-        <hr>
+        <h2>
+          <a href="/blogs/{{this._id}}" >{{this.title}}</a>
+        </h2>
+        <p>
+          作者：{{this.autor}} • {{this.create_at}}
+        </p>
+        <!-- <img src="/imgs/item_0.jpg" alt=""/> -->
+        <p>
+          {{this.content}}
+        </p>
+        <a target="_blank" href="/blogs/{{this._id}}"><span class="btn btn-primary">
+          查看原文
+        </span></a>
+        <hr/>
         <ul class="tag-list ulmain">
-          <li> <span class="glyphicon glyphicon-tags"></span></li>
-          <li><a target="_blank" href="">教材</a></li>
-          <li><a target="_blank" href="">教材</a></li>
-          <li><a target="_blank" href="">教材</a></li>
-          <li><a target="_blank" href="">教材</a></li>
+          <li>
+            <span class="glyphicon glyphicon-tags">
+            </span>
+          </li>
+          <li>
+            <a target="_blank" href="">
+              javascript
+            </a>
+          </li>
+          
         </ul>
       </article>
-
-       <article class="panel main-article">
-        <h2>2016 版 Laravel 系列入门教程（一）</h2>
-        <p>作者：JohnLui • 2016年6月6日</p>
-        <img src="/imgs/item_0.jpg" alt="">
-        <p>本教程示例代码见：https://github.com/johnlui/Learn-Laravel-5 在任何地方卡住，最快的办法就是去看示例代码。 本文基于 Laravel 5.2 版本，无奈 5.2 的中文文档还没有跟上，大家勉强看一下 5.1 的吧： Laravel 5.1 中文文档</p>
-        
-        <span class="btn btn-primary">查看原文</span>
-        <hr>
-        <ul class="tag-list ulmain">
-          <li> <span class="glyphicon glyphicon-tags"></span></li>
-          <li><a target="_blank" href="">教材</a></li>
-          <li><a target="_blank" href="">教材</a></li>
-          <li><a target="_blank" href="">教材</a></li>
-          <li><a target="_blank" href="">教材</a></li>
-        </ul>
-      </article>
+    {{/each}}
     </main>
     <aside class="col-md-4 col-sm-4 hidden-xs visiable-lg-block visiable-md-block">
       <div class="panel aside-panel">
-      <ul class="aside-art-list ulmain">
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-        <li><a target="_blank" href="/blogs/001">学无止境，谦虚慎行，三人行必有我师</a></li>
-      </ul>
-
+        <ul class="aside-art-list list-group">
+          <li class="list-group-item active">
+            <h4><i class="glyphicon glyphicon-th-list"></i>  最热文章推荐</h4>
+          </li>
+          {{#each(top)}}
+          <li class="list-group-item">
+            <a target="_blank" href="/blogs/{{this._id}}">
+            {{this.title}}
+            </a>
+          </li>
+          {{/each}}
+        </ul>
       </div>
     </aside>
   </div>
 </div>
 {{! --------文章列表区域--------end------ }}
-
 <script>
   $(function() {
    
@@ -90,4 +83,4 @@
 </script>
 <!--引入js脚本区域-->
 <script src="/js/index.js"></script>
-{{/block}}
+{{/block }}

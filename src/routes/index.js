@@ -1,18 +1,23 @@
-var express = require('express');
+var express = require( 'express' );
 var router = express.Router();
+var BlogsController = require( '../controller/blogscontroller' );
+/**
+ * get /
+ */
+router.get( '/', BlogsController.index );
 
 /**
-* get /
-*/
-router.get('/', function(req, res, next) {
-  res.render('index', { title: '老马的博客-flydragon 低调分享，乐于分享' });
-});
+ * get /about
+ */
+router.get( '/about', function( req, res, next ) {
+  res.render( 'about', {} );
+} );
 
 /**
-* get /about
-*/
-router.get('/about', function (req, res, next) {
-  res.render('about', {});
-});
+ * get /chance
+ */
+router.get( '/chance', function( req, res, next ) {
+  res.render( 'about', {} );
+} );
 
 module.exports = router;

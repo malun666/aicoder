@@ -1,0 +1,48 @@
+{{extend('../layout') }}
+{{#block('head') }}
+{{/block }}
+{{#block('body') }}
+<!--==========================
+=            添加用户            =
+===========================-->
+<div class="container">
+  <form action="/blogs/add" class="panel padding-em" method="post">
+    <div class="form-group">
+      <label for="exampleInputEmail1">
+        标题
+      </label>
+      <input class="form-control" id="title" name="title" placeholder="标题" type="text"/>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">
+        标签
+      </label>
+      <input class="form-control" id="tag" name="tag" placeholder="不同标签请用,号隔开(中英文都可以)" type="text"/>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">
+        作者
+      </label>
+      <input class="form-control" id="author" name="author" placeholder="作者" type="text"/>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">
+        文章内容
+      </label>
+      <textarea class="form-control" id="content" name="content" rows="20">
+        文章内容
+      </textarea>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input checked="checked" name="isPublish" type="checkbox"/>
+        是否发布
+      </input>
+    </label>
+  </div>
+  <button class="btn btn-success" type="submit">
+    发布
+  </button>
+</form>
+</div>
+{{/block }}

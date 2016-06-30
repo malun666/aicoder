@@ -1,0 +1,19 @@
+{{extend ("../about.xtpl")}}
+
+{{#block ("head")}}
+
+{{/block}}
+
+
+{{#block ("body")}}
+<div class="container">
+  <div class="page-header">
+    <h1>{{title}}</h1>
+    <p><small> 作者：{{autor}} • {{create_at}}</small></p>
+  </div>
+
+  <article class="blog-text">
+  {{{content}}}  
+  </article>
+</div>
+{{/block}}

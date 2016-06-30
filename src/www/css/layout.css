@@ -3,13 +3,23 @@ body {
   background-color: #ebebeb;
 }
 
+.padding-em {
+  padding: 1em;
+}
+
 .navbar {
   margin-bottom: 0;
 }
 
+.aside-art-list, .aside-art-list li {
+  list-style: none;
+}
+
+
 /**
 * 设置底部区域
 */
+
 .footer, .footer a {
   color: #f0f0f0;
 }
