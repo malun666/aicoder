@@ -1,7 +1,11 @@
 {{extend ("../about.xtpl")}}
 
 {{#block ("head")}}
-
+<style>
+  .container {
+    background-color: #fff;
+  }
+</style>
 {{/block}}
 
 
