@@ -11,17 +11,15 @@ assets.json
 
 # Ignore Mac OS desktop services store
 .DS_Store
-._*
 
 # Ignore Windows desktop setting file
 desktop.ini
 
 *.log
-src/db/*
+
 .idea
-src/www/upload/*
+public/upload/*
 
 *.sublime-project
 *.sublime-workspace
 *.swp
-
