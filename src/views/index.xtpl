@@ -3,6 +3,7 @@
 {{#block ('head')}}
 <link href="/css/index.css" rel="stylesheet"/>
 <link rel="stylesheet" href="/lib/animate.css"/>
+<script src="/js/DateExt.js"></script>
 {{/block }}
 
 
@@ -32,7 +33,7 @@
           <a href="/blogs/{{this._id}}" >{{this.title}}</a>
         </h2>
         <p>
-          作者：{{this.autor}} • {{this.create_at}}
+          <span> 作者：{{this.author}}</span> • <span class="main-article-date">{{this.create_at}}</span>
         </p>
         <!-- <img src="/imgs/item_0.jpg" alt=""/> -->
         <p>
@@ -47,11 +48,9 @@
             <span class="glyphicon glyphicon-tags">
             </span>
           </li>
-          <li>
-            <a target="_blank" href="">
-              javascript
-            </a>
-          </li>
+          <li><a target="_blank" href="">javascript</a></li>
+          <li><a target="_blank" href="">前端</a></li>
+          <li><a target="_blank" href="">HTML5</a></li>
           
         </ul>
       </article>
@@ -78,7 +77,9 @@
 {{! --------文章列表区域--------end------ }}
 <script>
   $(function() {
-   
+    $('.main-article-date').each(function (index,element) {
+      $(element).text((new Date($(element).text())).Format('yyyy-MM-dd hh:mm:ss'));
+    });
   });
 </script>
 <!--引入js脚本区域-->

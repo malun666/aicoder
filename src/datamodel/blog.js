@@ -12,8 +12,8 @@ const BlogSchema = new Schema({
   author: { type: String },
   reply_count: { type: Number, default: 0 },
   visit_count: { type: Number, default: 0 },
-  create_at: { type: Date, default: Date.now },
-  update_at: { type: Date, default: Date.now },
+  create_at: { type: Date,default: Date.now },
+  update_at: { type: Date, default: Date.now },  
   deleted: {  type: Boolean, default: false },
   comment: {  type: Array }
 });

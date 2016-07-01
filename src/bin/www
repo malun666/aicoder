@@ -14,7 +14,8 @@ var config = require( '../config' );
  */
 
 console.log( config.webport );
-var port = normalizePort( 3000 );
+var port = normalizePort( config.webport );
+console.log(port);
 app.set( 'port', port );
 
 /**
