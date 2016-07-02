@@ -30,3 +30,6 @@ aicoder 是基于 node 写的简易的Blog发布系统.[在线demo](http://aicod
 + 完善首页的自动化管理
 + 完善后台管理
 
+## License
+MIT
+
