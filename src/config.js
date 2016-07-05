@@ -9,5 +9,5 @@ module.exports = {
   mongodbConStr: "mongodb://localhost:27097/blog_db",
 
   //网站监听的端口 
-  webport: 3000
+  webport: 80
 };
