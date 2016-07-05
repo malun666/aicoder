@@ -1,0 +1,36 @@
+2016-07-01T13:58:18.481+0800 W -        [initandlisten] Detected unclean shutdown - /Volumes/WORK/gitdata/aicoder/src/db/./dbfile/mongod.lock is not empty.
+2016-07-01T13:58:18.493+0800 I JOURNAL  [initandlisten] journal dir=/Volumes/WORK/gitdata/aicoder/src/db/./dbfile/journal
+2016-07-01T13:58:18.494+0800 I JOURNAL  [initandlisten] recover begin
+2016-07-01T13:58:18.549+0800 I JOURNAL  [initandlisten] recover lsn: 6440596
+2016-07-01T13:58:18.549+0800 I JOURNAL  [initandlisten] recover /Volumes/WORK/gitdata/aicoder/src/db/./dbfile/journal/j._0
+2016-07-01T13:58:18.550+0800 I JOURNAL  [initandlisten] recover skipping application of section seq:0 < lsn:6440596
+2016-07-01T13:58:18.560+0800 I JOURNAL  [initandlisten] recover cleaning up
+2016-07-01T13:58:18.560+0800 I JOURNAL  [initandlisten] removeJournalFiles
+2016-07-01T13:58:18.561+0800 I JOURNAL  [initandlisten] recover done
+2016-07-01T13:58:18.626+0800 I JOURNAL  [durability] Durability thread started
+2016-07-01T13:58:18.627+0800 I JOURNAL  [journal writer] Journal writer thread started
+2016-07-01T13:58:18.627+0800 I CONTROL  [initandlisten] MongoDB starting : pid=4055 port=27097 dbpath=/Volumes/WORK/gitdata/aicoder/src/db/./dbfile 64-bit host=malun-mac.local
+2016-07-01T13:58:18.627+0800 I CONTROL  [initandlisten] 
+2016-07-01T13:58:18.627+0800 I CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number of files is 256, should be at least 1000
+2016-07-01T13:58:18.628+0800 I CONTROL  [initandlisten] db version v3.0.7
+2016-07-01T13:58:18.628+0800 I CONTROL  [initandlisten] git version: nogitversion
+2016-07-01T13:58:18.628+0800 I CONTROL  [initandlisten] build info: Darwin elcapitanvm.local 15.0.0 Darwin Kernel Version 15.0.0: Wed Aug 26 16:57:32 PDT 2015; root:xnu-3247.1.106~1/RELEASE_X86_64 x86_64 BOOST_LIB_VERSION=1_49
+2016-07-01T13:58:18.628+0800 I CONTROL  [initandlisten] allocator: system
+2016-07-01T13:58:18.629+0800 I CONTROL  [initandlisten] options: { net: { port: 27097 }, processManagement: { fork: true }, storage: { dbPath: "./dbfile" }, systemLog: { destination: "file", path: "./log/a.log" } }
+2016-07-01T13:58:18.671+0800 I NETWORK  [initandlisten] waiting for connections on port 27097
+2016-07-01T13:58:40.824+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63675 #1 (1 connection now open)
+2016-07-01T13:59:06.459+0800 I NETWORK  [conn1] end connection 127.0.0.1:63675 (0 connections now open)
+2016-07-01T13:59:10.639+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:63736 #2 (1 connection now open)
+2016-07-01T14:04:45.390+0800 I NETWORK  [conn2] end connection 127.0.0.1:63736 (0 connections now open)
+2016-07-01T14:04:57.174+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:64272 #3 (1 connection now open)
+2016-07-01T14:26:42.195+0800 I NETWORK  [conn3] end connection 127.0.0.1:64272 (0 connections now open)
+2016-07-01T14:26:46.578+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49637 #4 (1 connection now open)
+2016-07-01T14:26:52.673+0800 I NETWORK  [conn4] end connection 127.0.0.1:49637 (0 connections now open)
+2016-07-01T14:26:53.296+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49646 #5 (1 connection now open)
+2016-07-01T14:26:54.222+0800 I NETWORK  [conn5] end connection 127.0.0.1:49646 (0 connections now open)
+2016-07-01T14:26:55.166+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:49649 #6 (1 connection now open)
+2016-07-02T09:18:07.193+0800 I NETWORK  [conn6] end connection 127.0.0.1:49649 (0 connections now open)
+2016-07-05T08:04:44.707+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53504 #7 (1 connection now open)
+2016-07-05T08:05:04.742+0800 I NETWORK  [conn7] end connection 127.0.0.1:53504 (0 connections now open)
+2016-07-05T08:05:27.486+0800 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:53511 #8 (1 connection now open)
+2016-07-05T08:07:08.135+0800 I NETWORK  [conn8] end connection 127.0.0.1:53511 (0 connections now open)
