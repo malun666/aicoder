@@ -14,13 +14,6 @@ blogs.get( '/add', function( req, res, next ) {
 blogs.post( '/add', blogscontroller.add );
 
 /**
- * get /blogs/edit/3
- */
-blogs.get( '/edit/:id', ( req, res, next ) => {
-
-} );
-
-/**
  * 删除博客的功能页面
  * get  /blogs/del/4
  */
@@ -44,5 +37,12 @@ blogs.get('/:id', blogscontroller.blog_detail);
  * get /blogs/edit/:id
  */
 blogs.get('/edit/:id', blogscontroller.blog_show_edit);
+
+/**
+ * 修改博客的功能页面
+ *  post /blogs/edit/4
+ */
+blogs.post( '/edit/:id',blogscontroller.blog_edit);
+
 
 module.exports = blogs;

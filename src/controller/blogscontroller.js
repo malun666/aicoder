@@ -44,7 +44,7 @@ exports.index = function blogs_index( req, res, next ) {
 
 
     //查询所有的 最新的文章
-    Blog.find().sort({'create_at': -1}).limit( 10 ).exec(function( error, cursor ) {
+    Blog.where({ deleted: false}).find().sort({'visit_count': -1}).limit( 10 ).exec(function( error, cursor ) {
       if ( error ) {
         logger.log(error);
         return;
@@ -71,8 +71,9 @@ exports.blog_detail = function (req, res, error) {
       res.redirect('/');
       return;
     }
-
-    Blog.find().sort({'create_at': -1}).limit( 10 ).exec(function( error, cursor ) {
+    blog.visit_count += 1;
+    blog.save();
+    Blog.where({ deleted: false}).find().sort({'visit_count': -1}).limit( 10 ).exec(function( error, cursor ) {
       if ( error ) {
         logger.log(error);
         res.redirect('/');
@@ -131,6 +132,23 @@ exports.blog_show_edit = function (req, res, error) {
     }
 
     res.render('blogs/edit', blog);
+  });
+};
+
+exports.blog_edit = function (req, res, error) {
+  Blog.where({'_id': req.params.id }).findOne(function (error, blog) {
+    if( error || !blog ) {
+      logger.log( error );
+      res.redirect('/');
+      return;
+    }
+    // blog.deleted = true;
+    blog.title = req.body.title;
+    blog.content = req.body.content;
+    blog.author = req.body.author;
+    blog.save();
+
+    res.redirect('/');
   });
 };
 

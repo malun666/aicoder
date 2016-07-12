@@ -17,7 +17,7 @@
 =            修改用户            =
 ===========================-->
 <div class="container">
-  <form action="/blogs/add" class="panel padding-em" method="post">
+  <form action="/blogs/edit/{{_id}}" class="panel padding-em" method="post">
     <div class="form-group">
       <label for="exampleInputEmail1">
         标题
@@ -53,7 +53,7 @@
     </label>
   </div>
   <button class="btn btn-success" type="submit">
-    发布
+    修改
   </button>
 </form>
 </div>
@@ -61,15 +61,19 @@
 <script type="text/javascript">
   $(function () {
     // 创建富文本编辑器
-    UE.getEditor('editor');
+    var ue = UE.getEditor('editor',{
+      autoHeightEnabled: true
+    });
 
     // api
     // gethtml :  UE.getEditor('editor').getAllHtml()
     // UE.getEditor('editor').getContent()
     // UE.getEditor('editor').getPlainTxt()
     // UE.getEditor('editor').getContentTxt()
-    var  value = ` {{{content}}} `;
-    UE.getEditor('editor').execCommand('insertHtml', value);
+    var  value = '{{{content}}}';
+    ue.ready(function() {
+      ue.setContent(value);
+    });
   });
 </script>
 
