@@ -12,6 +12,7 @@ assets.json
 # Ignore Mac OS desktop services store
 .DS_Store
 ._*
+
 # Ignore Windows desktop setting file
 desktop.ini
 
@@ -20,6 +21,9 @@ desktop.ini
 .idea
 src/www/ueditor/upload/*
 src/db/*
+
+# Ignore dist
+dist/*
 
 *.sublime-project
 *.sublime-workspace

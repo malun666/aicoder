@@ -3,14 +3,16 @@
 
 ## 1. 依赖项目
 
-+ 1.1 htmlparser2 ,用于解析HTML文档。主要用于解析富文本编辑器提交的内容，并把内部的文章截取出来。
+## 1.1 htmlparser2 
+
+用于解析HTML文档。主要用于解析富文本编辑器提交的内容，并把内部的文章截取出来。
 
 ```shell
 # 使用方法
 npm i htmlparser2 --save
 ```
 
-+ 1.2 日期格式化
+### 1.2 日期格式化
 
 
 ```javascript
@@ -44,3 +46,5 @@ Date.prototype.Format = function (fmt) {
  alert(haorooms1 ); alert(haorooms2);
 
 ```
+
+### 1.3 

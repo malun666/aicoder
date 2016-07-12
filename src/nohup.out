@@ -1,8 +1,0 @@
-
-> src@0.0.0 start /Volumes/WORK/gitdata/aicoder/src
-> nodemon ./bin/www
-
-[33m[nodemon] 1.9.2[39m
-[33m[nodemon] to restart at any time, enter `rs`[39m
-[33m[nodemon] watching: *.*[39m
-[32m[nodemon] starting `node ./bin/www`[39m

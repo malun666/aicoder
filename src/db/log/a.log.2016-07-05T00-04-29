@@ -1,4 +1,0 @@
-2016-07-05T08:02:46.514+0800 E NETWORK  [initandlisten] listen(): bind() failed errno:48 Address already in use for socket: 0.0.0.0:27097
-2016-07-05T08:02:46.515+0800 E NETWORK  [initandlisten]   addr already in use
-2016-07-05T08:02:46.517+0800 I STORAGE  [initandlisten] exception in initAndListen: 29 Data directory /Volumes/WORK/gitdata/aicoder/src/db/dbifle not found., terminating
-2016-07-05T08:02:46.518+0800 I CONTROL  [initandlisten] dbexit:  rc: 100

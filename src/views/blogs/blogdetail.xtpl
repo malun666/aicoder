@@ -1,23 +1,27 @@
 {{extend ("../about.xtpl")}}
 
 {{#block ("head")}}
-<style>
-  .detail-body {
-    background-color: #fff;
-  }
-</style>
 {{/block}}
 
 
 {{#block ("body")}}
-<div class="container detail-body">
-  <div class="page-header">
-    <h1>{{title}}</h1>
-    <p><small> 作者：{{autor}} • {{create_at}}</small></p>
-  </div>
+<div class="container">
+  <div class="row">
+    {{! 主要文章内容区域}}
+    <main class="panel col-md-8 col-sm-8 col-xs-12">
+      <div class="page-header">
+        <h1>{{title}}</h1>
+        <p><small> 作者：{{autor}} • <span class="main-article-date">{{create_at}}</span></small></p>
+      </div>
 
-  <article class="blog-text">
-  {{{content}}}  
-  </article>
+      <article class="blog-text">
+      {{{content}}}
+      </article>    
+    </main>
+
+    {{! 侧边栏区域}}
+    {{{ include('../sidebar', top = top) }}}
+  </div>
+  
 </div>
 {{/block}}

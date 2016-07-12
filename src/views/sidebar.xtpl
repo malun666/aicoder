@@ -1,0 +1,19 @@
+
+{{! --------侧边栏--------start------ }}
+<aside class="col-md-4 col-sm-4 hidden-xs visiable-lg-block visiable-md-block">
+  <div class="panel aside-panel">
+    <ul class="aside-art-list list-group">
+      <li class="list-group-item active">
+        <h4><i class="glyphicon glyphicon-th-list"></i>  最热文章推荐</h4>
+      </li>
+      {{#each(top)}}
+      <li class="list-group-item">
+        <a target="_blank" href="/blogs/{{this._id}}">
+        {{this.title}}
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</aside>
+{{! --------侧边栏--------end------ }}

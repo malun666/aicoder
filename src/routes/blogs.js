@@ -39,5 +39,10 @@ blogs.post( '/del/:id',blogscontroller.blog_del);
  */
 blogs.get('/:id', blogscontroller.blog_detail);
 
+/**
+ * 修改博客的功能
+ * get /blogs/edit/:id
+ */
+blogs.get('/edit/:id', blogscontroller.blog_show_edit);
 
 module.exports = blogs;

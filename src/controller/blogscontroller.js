@@ -72,7 +72,15 @@ exports.blog_detail = function (req, res, error) {
       return;
     }
 
-    res.render('blogs/blogdetail', blog);
+    Blog.find().sort({'create_at': -1}).limit( 10 ).exec(function( error, cursor ) {
+      if ( error ) {
+        logger.log(error);
+        res.redirect('/');
+        return;
+      }
+      blog.top = cursor;
+      res.render('blogs/blogdetail', blog);
+    });// Blog sort
   });
 };
 
@@ -110,6 +118,21 @@ exports.blog_show_del = function (req, res, error) {
   });
 };
 
+
+/*================================
+=            显示单个修改博客页面            =
+================================*/
+exports.blog_show_edit = function (req, res, error) {
+  Blog.where({'_id': req.params.id }).findOne(function (error, blog) {
+    if( error || !blog ) {
+      logger.log( error );
+      res.redirect('/');
+      return;
+    }
+
+    res.render('blogs/edit', blog);
+  });
+};
 
 
 

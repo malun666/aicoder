@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "start-mongodb": "mongod --dbpath db/dbfiles --logpath db/log/a.log --port 27097 --fork"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

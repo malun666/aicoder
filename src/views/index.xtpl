@@ -3,7 +3,6 @@
 {{#block ('head')}}
 <link href="/css/index.css" rel="stylesheet"/>
 <link rel="stylesheet" href="/lib/animate.css"/>
-<script src="/js/DateExt.js"></script>
 {{/block }}
 
 
@@ -23,6 +22,7 @@
   </div>
 </div>
 {{! --------头部的大幕区域--------end------ }}
+
 {{! --------文章列表区域--------start------ }}
 <div class="container">
   <div class="row">
@@ -56,32 +56,11 @@
       </article>
     {{/each}}
     </main>
-    <aside class="col-md-4 col-sm-4 hidden-xs visiable-lg-block visiable-md-block">
-      <div class="panel aside-panel">
-        <ul class="aside-art-list list-group">
-          <li class="list-group-item active">
-            <h4><i class="glyphicon glyphicon-th-list"></i>  最热文章推荐</h4>
-          </li>
-          {{#each(top)}}
-          <li class="list-group-item">
-            <a target="_blank" href="/blogs/{{this._id}}">
-            {{this.title}}
-            </a>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </aside>
+    {{! 添加侧边栏 }}
+    {{{ include('./sidebar', top = top ) }}}
   </div>
 </div>
 {{! --------文章列表区域--------end------ }}
-<script>
-  $(function() {
-    $('.main-article-date').each(function (index,element) {
-      $(element).text((new Date($(element).text())).Format('yyyy-MM-dd hh:mm:ss'));
-    });
-  });
-</script>
 <!--引入js脚本区域-->
 <script src="/js/index.js"></script>
 {{/block }}
