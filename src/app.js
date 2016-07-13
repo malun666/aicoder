@@ -1,18 +1,18 @@
-var express = require( 'express' );
-var path = require( 'path' );
-var favicon = require( 'serve-favicon' );
-var logger = require( 'morgan' );
-var cookieParser = require( 'cookie-parser' );
-var bodyParser = require( 'body-parser' );
-var cofig = require( './config' );
-var ueditor = require( 'ueditor' );
+const express = require( 'express' );
+const path = require( 'path' );
+const favicon = require( 'serve-favicon' );
+const logger = require( 'morgan' );
+const cookieParser = require( 'cookie-parser' );
+const bodyParser = require( 'body-parser' );
+const cofig = require( './config' );
+const ueditor = require( 'ueditor' );
 
-var indexs = require( './routes/index' );
-var users = require( './routes/users' );
-var blogs = require( './routes/blogs' );
-var ueditorRouter = require( './routes/ueditor' );
+const indexs = require( './routes/index' );
+const users = require( './routes/users' );
+const blogs = require( './routes/blogs' );
+// const ueditorRouter = require( './routes/ueditor' );
 
-var preStart = require( './appstart' );
+const preStart = require( './appstart' );
 preStart();
 
 var app = express();
@@ -34,7 +34,7 @@ app.use( express.static( path.join( __dirname, 'www' ) ) );
 app.use( '/', indexs );
 app.use( '/blogs', blogs );
 app.use( '/users', users );
-app.use( '/ueditor', ueditorRouter );
+// app.use( '/ueditor', ueditorRouter );
 
 // /ueditor 入口地址配置 https://github.com/netpi/ueditor/blob/master/example/public/ueditor/ueditor.config.js
 // 官方例子是这样的 serverUrl: URL + "php/controller.php"

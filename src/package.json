@@ -19,5 +19,11 @@
     "ueditor": "^1.1.1",
     "xtemplate": "^4.5.1",
     "xtpl": "^3.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-uglify": "^1.5.4"
   }
 }

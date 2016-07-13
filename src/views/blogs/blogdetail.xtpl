@@ -11,7 +11,7 @@
     <main class="panel col-md-8 col-sm-8 col-xs-12">
       <div class="page-header">
         <h1>{{title}}</h1>
-        <p><small> 作者：{{autor}} • <span class="main-article-date">{{create_at}}</span></small></p>
+        <p><small> <span>作者：{{author}}</span> • <span class="main-article-date">{{create_at}}</span></small></p>
       </div>
 
       <article class="blog-text">
