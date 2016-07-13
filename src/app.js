@@ -15,9 +15,7 @@ var ueditorRouter = require( './routes/ueditor' );
 var preStart = require( './appstart' );
 preStart();
 
-
 var app = express();
-
 
 // view engine setup
 app.set( 'views', path.join( __dirname, 'views' ) );

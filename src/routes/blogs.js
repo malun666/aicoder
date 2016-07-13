@@ -1,5 +1,5 @@
 var express = require( 'express' );
-var blogscontroller = require( '../controller/blogscontroller' )
+var blogscontroller = require( '../controller/blogsController' )
 var blogs = express.Router();
 
 /* GET home page. 

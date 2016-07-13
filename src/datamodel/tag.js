@@ -10,8 +10,8 @@ const BlogSchema = new Schema({
   name: { type: String },
   remark: { type: String },
   visit_count: { type: Number, default: 0 },
-  deleted: {  type: Boolean, default: false }
+  deleted: { type: Boolean, default: false }
 });
 
 
-module.exports = mongoose.model( 'BLog', BlogSchema );
+module.exports = mongoose.model( 'Tag', BlogSchema );
