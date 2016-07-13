@@ -14,22 +14,22 @@ gulp.task('copy', function() {
 });
 //压缩CSS
 gulp.task('minify-css',['copy'], function() {
-  return gulp.src('www/css/*.css')
+  return gulp.src('../src/**/*.css',{base: '../src'})
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('../dist/www/css'));
+    .pipe(gulp.dest('../dist'));
 });
 
 // 在命令行使用 gulp auto 启动此任务
 gulp.task('auto', function () {
     // 监听文件修改，当文件被修改则执行 css 任务
-    gulp.watch('www/css/*.css', ['minify-css']);
+    gulp.watch('../src/**/*.css', ['minify-css']);
 });
 
 //html压缩工具
 gulp.task('html_minify',['copy'], function() {
-    return gulp.src('www/*.html')
+    return gulp.src('../src/**/*.html', {base: '../src'})
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('../dist/www'));
+    .pipe(gulp.dest('../dist'));
     // gulp.src(['views/**/*.xtpl','views/*.xtpl'])
     // .pipe(htmlmin({collapseWhitespace: true}))
     // .pipe(gulp.dest('../dist/views'));
@@ -38,27 +38,15 @@ gulp.task('html_minify',['copy'], function() {
 // 压缩 js 文件
 // 在命令行使用 gulp script 启动此任务
 gulp.task('script',['copy'], function() {
-    gulp.src('*.js')
+    var jsPaths = [
+      '../src/*.js',
+      'datamodel/*.js',
+      'controller/*.js',
+      'common/*.js',
+      'routes/*.js',
+      'www/js/*.js'
+    ];
+    return gulp.src(jsPaths ,{base: '../src'})
         .pipe(uglify())
-        .pipe(gulp.dest('../dist/'));
-        
-    gulp.src('datamodel/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('../dist/datamodel'));
-
-    gulp.src('controller/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('../dist/controller'));
-
-    gulp.src('common/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('../dist/common'));
-
-    gulp.src('routes/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('../dist/routes'));
-
-    return gulp.src('www/js/*.js')
-        .pipe(uglify())
-        .pipe(gulp.dest('../dist/www/js'));
+        .pipe(gulp.dest('../dist'));
 });
