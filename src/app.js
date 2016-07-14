@@ -10,6 +10,7 @@ const ueditor = require( 'ueditor' );
 const indexs = require( './routes/index' );
 const users = require( './routes/users' );
 const blogs = require( './routes/blogs' );
+const tag = require( './routes/tag' );
 // const ueditorRouter = require( './routes/ueditor' );
 
 const preStart = require( './appstart' );
@@ -34,6 +35,7 @@ app.use( express.static( path.join( __dirname, 'www' ) ) );
 app.use( '/', indexs );
 app.use( '/blogs', blogs );
 app.use( '/users', users );
+app.use( '/tag', tag)
 // app.use( '/ueditor', ueditorRouter );
 
 // /ueditor 入口地址配置 https://github.com/netpi/ueditor/blob/master/example/public/ueditor/ueditor.config.js

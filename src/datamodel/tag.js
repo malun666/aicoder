@@ -6,12 +6,13 @@
 const mongoose = require( 'mongoose' );
 const Schema = mongoose.Schema;
 
-const BlogSchema = new Schema({
-  name: { type: String },
-  remark: { type: String },
+const TagSchema = new Schema({
+  name: { type: String, required: true,index: true, unique: true },
+  remark: { type: String, default: ''},
+  link_count: { type: Number, default: 0 },
   visit_count: { type: Number, default: 0 },
   deleted: { type: Boolean, default: false }
 });
 
 
-module.exports = mongoose.model( 'Tag', BlogSchema );
+module.exports = mongoose.model( 'Tag', TagSchema );

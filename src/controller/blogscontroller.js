@@ -1,4 +1,5 @@
 const Blog = require( '../datamodel/blog' );
+const Tag = require( '../datamodel/tag' );
 const logger = require( '../common/log' );
 const mongoose = require( 'mongoose' );
 const htmlparserHelper = require('../common/htmlparserhelp');
@@ -14,15 +15,30 @@ exports.add = function blogs_add( req, res, next ) {
   blog.content = req.body.content;
   blog.author = req.body.author;
 
+  var tagsStr = req.body.tag;// 拿到所有的tag标签： 老师,go，老大，model,sdcard"
+
+  // 拿到所有tag标签对应的 tag字符串数组
+  var tagArray = tagsStr.replace(/，/g,',').split(',');
+
   // 保存数据到mongodb中
   blog.save( function( error, item ) {
     if ( error ) {
       logger.log( error );
       return;
     }
-    //添加成功后调整
+    //添加tag到MongoDb中去
+    tagArray.forEach(function(item){
+      try{
+        var tag = new Tag();
+        tag.name = item;
+        tag.save();
+      } catch( ex ) {
+        logger.log(ex);
+      }
+    });
+    //添加成功后跳转到首页
     res.redirect( '/' );
-  } );
+  });
 };
 
 
