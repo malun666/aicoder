@@ -12,7 +12,6 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "htmlparser2": "^3.9.1",
-    "jade": "~1.11.0",
     "mongoose": "^4.5.2",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0",
@@ -23,6 +22,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.11",
+    "gulp-eslint": "^3.0.1",
     "gulp-htmlmin": "^2.0.0",
     "gulp-uglify": "^1.5.4"
   }

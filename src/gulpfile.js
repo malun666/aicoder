@@ -10,7 +10,8 @@ var jsPaths = [
   'controller/*.js',
   'common/*.js',
   'routes/*.js',
-  'www/js/*.js'
+  'www/js/*.js',
+  '!node_modules/**'
 ];
 
 // 主任务
