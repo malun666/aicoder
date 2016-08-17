@@ -13,7 +13,7 @@ blogs.get( '/add', function( req, res, next ) {
 
 blogs.post( '/add', blogscontroller.add );
 
-/**
+/*
  * 删除博客的功能页面
  * get  /blogs/del/4
  */
