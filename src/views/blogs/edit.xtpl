@@ -40,10 +40,11 @@
       <label for="exampleInputPassword1">
         文章内容
       </label>
-      <!-- <textarea class="form-control" id="content" name="content" rows="20">
-        
-      </textarea> -->
-     <script id="editor" name="content" type="text/plain" style="width:100%;height:500px;"></script>
+      <!--ueditor的编辑器-->
+     <script id="editor" name="content" type="text/plain" style="width:100%;height:500px;">
+      {{!-- 这里是编辑器的初始化的内容 --}}
+      {{{ content }}}
+     </script>
     </div>
     <div class="checkbox">
       <label>
@@ -63,16 +64,6 @@
     // 创建富文本编辑器
     var ue = UE.getEditor('editor',{
       autoHeightEnabled: true
-    });
-
-    // api
-    // gethtml :  UE.getEditor('editor').getAllHtml()
-    // UE.getEditor('editor').getContent()
-    // UE.getEditor('editor').getPlainTxt()
-    // UE.getEditor('editor').getContentTxt()
-    var  value = '{{{content}}}';
-    ue.ready(function() {
-      ue.setContent(value);
     });
   });
 </script>

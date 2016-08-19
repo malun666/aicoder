@@ -1,13 +1,67 @@
-const Blog = require( '../datamodel/blog' );
-const Tag = require( '../datamodel/tag' );
-const logger = require( '../common/log' );
-const mongoose = require( 'mongoose' );
+const express = require('express');
+const blogRoute = express.Router();
+
+const Blog = require('../datamodel/blog');
+const Tag = require('../datamodel/tag');
+const logger = require('../common/log');
+const mongoose = require('mongoose');
 const htmlparserHelper = require('../common/htmlparserhelp');
+
+var BlogsController = {};
+
+// 设置路由信息
+BlogsController.registRouter = function (app) {
+  blogRoute.get('/add', function (req, res, next) {
+    res.render('blogs/add', {
+      title: '添加blog文章'
+    });
+  });
+
+  blogRoute.post('/add', BlogsController.add);
+
+  /*
+   * 删除博客的功能页面
+   * get  /blogs/del/4
+   */
+  blogRoute.get('/del/:id', BlogsController.blog_show_del);
+
+  /**
+   * 删除博客的功能页面
+   * get  /blogs/del/4
+   */
+  blogRoute.post('/del/:id', BlogsController.blog_del);
+
+
+  /**
+   * 浏览博客的功能页面
+   * get  /blogs/4
+   */
+  blogRoute.get('/:id', BlogsController.blog_detail);
+
+  /**
+   * 修改博客的功能
+   * get /blogs/edit/:id
+   */
+  blogRoute.get('/edit/:id', BlogsController.blog_show_edit);
+
+  /**
+   * 修改博客的功能页面
+   *  post /blogs/edit/4
+   */
+  blogRoute.post('/edit/:id', BlogsController.blog_edit);
+  blogRoute.get('/index', BlogsController.index);
+
+  blogRoute.get('/*', BlogsController.index)
+  // 所有未匹配的走当前首页
+
+  app.use('/blogs/', blogRoute);
+
+};
 
 /*================================
 =            添加blog信息            =
 ================================*/
-exports.add = function blogs_add( req, res, next ) {
+BlogsController.add = function blogs_add(req, res, next) {
   // res.json(req.body);
   //从请求中拿到所有到post来的数据，创建一个model对象。
   var blog = new Blog();
@@ -18,26 +72,26 @@ exports.add = function blogs_add( req, res, next ) {
   var tagsStr = req.body.tag;// 拿到所有的tag标签： 老师,go，老大，model,sdcard"
 
   // 拿到所有tag标签对应的 tag字符串数组
-  var tagArray = tagsStr.replace(/，/g,',').split(',');
+  var tagArray = tagsStr.replace(/，/g, ',').split(',');
 
   // 保存数据到mongodb中
-  blog.save( function( error, item ) {
-    if ( error ) {
-      logger.log( error );
+  blog.save(function (error, item) {
+    if (error) {
+      logger.log(error);
       return;
     }
     //添加tag到MongoDb中去
-    tagArray.forEach(function(item){
-      try{
+    tagArray.forEach(function (item) {
+      try {
         var tag = new Tag();
         tag.name = item;
         tag.save();
-      } catch( ex ) {
+      } catch (ex) {
         logger.log(ex);
       }
     });
     //添加成功后跳转到首页
-    res.redirect( '/' );
+    res.redirect('/');
   });
 };
 
@@ -45,34 +99,34 @@ exports.add = function blogs_add( req, res, next ) {
 /*============================
 =            博客列表            =
 ============================*/
-exports.index = function blogs_index( req, res, next ) {
+BlogsController.index = function blogs_index(req, res, next) {
   //通过MongoDb搜索
-  Blog.where({ deleted: false}).find().limit(20).sort({'create_at': -1 }).exec( function( error, blogs ) {
-    if ( error ) {
-      logger.log( error );
+  Blog.where({ deleted: false }).find().limit(20).sort({ 'create_at': -1 }).exec(function (error, blogs) {
+    if (error) {
+      logger.log(error);
       return;
     }
 
     //截取content中的内容字，显示简介。
-    blogs.forEach( function( e, i ) {
-      blogs[ i ].content = htmlparserHelper.paserHtml(e.content).slice( 0, 50 );
-    } );
+    blogs.forEach(function (e, i) {
+      blogs[i].content = htmlparserHelper.paserHtml(e.content).slice(0, 50);
+    });
 
 
     //查询所有的 最新的文章
-    Blog.where({ deleted: false}).find().sort({'visit_count': -1}).limit( 10 ).exec(function( error, cursor ) {
-      if ( error ) {
+    Blog.where({ deleted: false }).find().sort({ 'visit_count': -1 }).limit(10).exec(function (error, cursor) {
+      if (error) {
         logger.log(error);
         return;
       }
-      res.render( 'index', {
+      res.render('index', {
         title: "老马的博客-flydragon 低调分享，乐于分享",
         items: blogs,
         top: cursor
       });//res.rendder
 
     });// Blog sort
-    
+
   });//Blog.find
 };
 
@@ -80,17 +134,17 @@ exports.index = function blogs_index( req, res, next ) {
 /*================================
 =            显示单个博客页面            =
 ================================*/
-exports.blog_detail = function (req, res, error) {
-  Blog.where({'_id': req.params.id }).findOne(function (error, blog) {
-    if( error || !blog ) {
-      logger.log( error );
+BlogsController.blog_detail = function (req, res, error) {
+  Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
+    if (error || !blog) {
+      logger.log(error);
       res.redirect('/');
       return;
     }
     blog.visit_count += 1;
     blog.save();
-    Blog.where({ deleted: false}).find().sort({'visit_count': -1}).limit( 10 ).exec(function( error, cursor ) {
-      if ( error ) {
+    Blog.where({ deleted: false }).find().sort({ 'visit_count': -1 }).limit(10).exec(function (error, cursor) {
+      if (error) {
         logger.log(error);
         res.redirect('/');
         return;
@@ -105,10 +159,10 @@ exports.blog_detail = function (req, res, error) {
 /*================================
 =            处理用户删除blog           =
 ================================*/
-exports.blog_del = function (req, res, error) {
-  Blog.where({'_id': req.params.id }).findOne(function (error, blog) {
-    if( error || !blog ) {
-      logger.log( error );
+BlogsController.blog_del = function (req, res, error) {
+  Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
+    if (error || !blog) {
+      logger.log(error);
       res.redirect('/');
       return;
     }
@@ -123,10 +177,10 @@ exports.blog_del = function (req, res, error) {
 /*================================
 =            显示单个删除博客页面            =
 ================================*/
-exports.blog_show_del = function (req, res, error) {
-  Blog.where({'_id': req.params.id }).findOne(function (error, blog) {
-    if( error || !blog ) {
-      logger.log( error );
+BlogsController.blog_show_del = function (req, res, error) {
+  Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
+    if (error || !blog) {
+      logger.log(error);
       res.redirect('/');
       return;
     }
@@ -139,10 +193,10 @@ exports.blog_show_del = function (req, res, error) {
 /*================================
 =            显示单个修改博客页面            =
 ================================*/
-exports.blog_show_edit = function (req, res, error) {
-  Blog.where({'_id': req.params.id }).findOne(function (error, blog) {
-    if( error || !blog ) {
-      logger.log( error );
+BlogsController.blog_show_edit = function (req, res, error) {
+  Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
+    if (error || !blog) {
+      logger.log(error);
       res.redirect('/');
       return;
     }
@@ -151,10 +205,10 @@ exports.blog_show_edit = function (req, res, error) {
   });
 };
 
-exports.blog_edit = function (req, res, error) {
-  Blog.where({'_id': req.params.id }).findOne(function (error, blog) {
-    if( error || !blog ) {
-      logger.log( error );
+BlogsController.blog_edit = function (req, res, error) {
+  Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
+    if (error || !blog) {
+      logger.log(error);
       res.redirect('/');
       return;
     }
@@ -168,7 +222,4 @@ exports.blog_edit = function (req, res, error) {
   });
 };
 
-
-
-
-
+module.exports = BlogsController;

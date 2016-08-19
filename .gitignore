@@ -21,6 +21,7 @@ desktop.ini
 .idea
 src/www/ueditor/upload/*
 src/db/*
+db/*
 
 # Ignore vscode debug json
 .vscode
