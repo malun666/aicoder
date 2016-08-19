@@ -40,7 +40,7 @@ gulp.task('minify_html', ['copy'], function () {
 
 // 压缩 js 文件
 gulp.task('minify_js', ['copy'], function () {
-  return gulp.src(jsPaths, { base: './src' })
+  return gulp.src(['./src/**/*.js','!./src/typings/**/*.js'], { base: './src' })
     .pipe(uglify())
     .pipe(gulp.dest('./dist'));
 });
