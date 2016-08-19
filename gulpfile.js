@@ -5,12 +5,12 @@ const uglify = require('gulp-uglify');
 
 // 需要压缩的js路径
 var jsPaths = [
-  './src/*.js',
-  'datamodel/*.js',
-  'controller/*.js',
-  'common/*.js',
-  'routes/*.js',
-  'www/js/*.js'
+  './src/**/*.js'
+  // 'datamodel/*.js',
+  // 'controller/*.js',
+  // 'common/*.js',
+  // 'routes/*.js',
+  // 'www/js/*.js'
 ];
 
 // 主任务

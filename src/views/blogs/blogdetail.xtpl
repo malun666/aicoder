@@ -3,7 +3,6 @@
 {{#block ("head")}}
 {{/block}}
 
-
 {{#block ("body")}}
 <div class="container">
   <div class="row">
@@ -15,7 +14,7 @@
       </div>
 
       <article class="blog-text">
-      {{{content}}}
+      {{{ content }}}
       </article>    
     </main>
 

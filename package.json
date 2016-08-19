@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon ./src/bin/www",
     "startDist": "nodemon ./dist/bin/www",
-    "mongodb": "mongod --dbpath ../db/dbfiles --logpath ../db/log/a.log --port 27097 --fork"
+    "mongodb": "mongod --dbpath ./dist/db/dbfiles --logpath ./dist/db/log/a.log --port 27097 --fork"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
