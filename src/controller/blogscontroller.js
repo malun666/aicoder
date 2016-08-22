@@ -31,7 +31,6 @@ BlogsController.registRouter = function (app) {
    */
   blogRoute.post('/del/:id', BlogsController.blog_del);
 
-
   /**
    * 浏览博客的功能页面
    * get  /blogs/4
