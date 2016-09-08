@@ -1,0 +1,19 @@
+{{extend('../layout') }}
+{{#block('head') }}
+
+{{/block }}
+
+{{#block('body') }}
+<!--==========================
+=            添加用户            =
+===========================-->
+<div class="container">
+  admin index
+</div>
+
+<script type="text/javascript">
+  $(function () {
+  });
+</script>
+
+{{/block }}

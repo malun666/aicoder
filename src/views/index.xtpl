@@ -30,7 +30,7 @@
     {{#each(items)}}
       <article class="panel main-article">
         <h2>
-          <a href="/blogs/{{this._id}}" >{{this.title}}</a>
+          <a href="/blogs/{{this._id}}.html" >{{this.title}}</a>
         </h2>
         <p>
           <span> 作者：{{this.author}}</span> • <span class="main-article-date">{{this.create_at}}</span>
@@ -39,7 +39,7 @@
         <p>
           {{this.content}}
         </p>
-        <a target="_blank" href="/blogs/{{this._id}}"><span class="btn btn-primary">
+        <a target="_blank" href="/blogs/{{this._id}}.html"><span class="btn btn-primary">
           查看原文
         </span></a>
         <hr/>

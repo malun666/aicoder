@@ -11,7 +11,7 @@ var BlogsController = {};
 
 // 设置路由信息
 BlogsController.registRouter = function (app) {
-  blogRoute.get('/add', function (req, res, next) {
+  blogRoute.get('/add.html', function (req, res, next) {
     res.render('blogs/add', {
       title: '添加blog文章'
     });
@@ -23,7 +23,7 @@ BlogsController.registRouter = function (app) {
    * 删除博客的功能页面
    * get  /blogs/del/4
    */
-  blogRoute.get('/del/:id', BlogsController.blog_show_del);
+  blogRoute.get('/del/:id.html', BlogsController.blog_show_del);
 
   /**
    * 删除博客的功能页面
@@ -35,20 +35,20 @@ BlogsController.registRouter = function (app) {
    * 浏览博客的功能页面
    * get  /blogs/4
    */
-  blogRoute.get('/:id', BlogsController.blog_detail);
+  blogRoute.get('/:id.html', BlogsController.blog_detail);
 
   /**
    * 修改博客的功能
    * get /blogs/edit/:id
    */
-  blogRoute.get('/edit/:id', BlogsController.blog_show_edit);
+  blogRoute.get('/edit/:id.html', BlogsController.blog_show_edit);
 
   /**
    * 修改博客的功能页面
    *  post /blogs/edit/4
    */
   blogRoute.post('/edit/:id', BlogsController.blog_edit);
-  blogRoute.get('/index', BlogsController.index);
+  blogRoute.get('/index.html', BlogsController.index);
 
   blogRoute.get('/*', BlogsController.index)
   // 所有未匹配的走当前首页
@@ -187,9 +187,6 @@ BlogsController.blog_show_del = function (req, res, error) {
     res.render('blogs/blog_del_detail', blog);
   });
 };
-
-
-
 
 /*================================
 =            显示单个修改博客页面            =

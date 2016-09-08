@@ -1,6 +1,7 @@
 {{extend ("../about.xtpl")}}
 
 {{#block ("head")}}
+  <link rel="stylesheet" type="text/css" href="/css/blogdetail.css">
 {{/block}}
 
 {{#block ("body")}}
@@ -8,19 +9,84 @@
   <div class="row">
     {{! 主要文章内容区域}}
     <main class="panel col-md-8 col-sm-8 col-xs-12">
+
+      <!--标题区域-->
       <div class="page-header">
         <h1>{{title}}</h1>
         <p><small> <span>作者：{{author}}</span> • <span class="main-article-date">{{create_at}}</span></small></p>
       </div>
 
+      <!--文章内容-->
       <article class="blog-text">
-      {{{ content }}}
-      </article>    
+        {{{ content }}}
+      </article>
+
+      <!--文章签名区域-->
+      <hr>
+      <div class="copyright">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3>版权信息</h3>
+          </div>
+          <div class="panel-body">
+            <p>版权所有<i class="glyphicon glyphicon-copyright-mark"></i>malun666@126.com</p>
+            <p style="color: red;">转载请务必保留版权信息！</p>
+          </div>
+        </div>
+      </div>
+      <!--文章评论-->
+      <div class="comment-wrap panel panel-default">
+        <div class="panel-heading">
+          <h3>评论区</h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-2">
+              用户名:
+            </div>
+            <div class="col-md-10">
+              <input type="text" name="txtName" value="" placeholder="请输入姓名">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-2">
+             个人邮箱:
+            </div>
+            <div class="col-md-10">
+              <input type="mail" name="txtMail" value="" placeholder="请输入邮箱">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              个人网址:
+            </div>
+            <div class="col-md-10">
+              <input type="url" name="txtUrl" value="" placeholder="请输入个人网址，不会泄露！">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+              评论内容:
+            </div>
+            <div class="col-md-10">
+              <textarea rows="10" cols="50">请输入评论内容</textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <button class="btn btn-default" type="button">
+                提交评论
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
-    {{! 侧边栏区域}}
-    {{{ include('../sidebar', top = top) }}}
+    {{! 侧边栏区域}} {{{ include('../sidebar', top = top) }}}
   </div>
-  
+
 </div>
 {{/block}}
