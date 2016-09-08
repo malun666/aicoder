@@ -1,4 +1,5 @@
 const BlogsController = require('./BlogsController');
+
 var HomeController = {};
 
 // 注册路由信息
