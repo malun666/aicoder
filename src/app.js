@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session')
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -9,11 +10,7 @@ const ueditor = require('ueditor');
 
 const routerLoader = require('./routes/routerLoader');
 
-// const indexs = require( './routes/index' );
-// const users = require( './routes/users' );
-// const blogs = require( './routes/blogs' );
-// const tag = require( './routes/tag' );
-// const ueditorRouter = require( './routes/ueditor' );
+const User = require('./datamodel/user')
 
 const preStart = require('./appstart');
 preStart();
@@ -31,21 +28,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'www')));
 
+// 注册所有的路由信息
 routerLoader(app);
 
-// app.use( '/', indexs );
-// app.use( '/blogs', blogs );
-// app.use( '/users', users );
-// app.use( '/tag', tag)
-// app.use( '/ueditor', ueditorRouter );
-
 // /ueditor 入口地址配置 https://github.com/netpi/ueditor/blob/master/example/public/ueditor/ueditor.config.js
-// 官方例子是这样的 serverUrl: URL + "php/controller.php"
-// 我们要把它改成 serverUrl: URL + 'ue'
-// error handlers
 app.use("/lib/ueditor/ue", ueditor(path.join(__dirname, 'www'), function (req, res, next) {
   console.log('----' + req.query.action);
   // ueditor 客户发起上传图片请求
@@ -79,23 +69,15 @@ app.use(function (req, res, next) {
   res.redirect('/404.html');
 });
 
-
-
 // development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
     res.status(err.status || 500);
-    // res.render('error', {
-    //   message: err.message,
-    //   error: err
-    // });
     res.send(err.message);
   });
 }
 
 // production error handler
-// no stacktraces leaked to user
 app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {

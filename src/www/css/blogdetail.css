@@ -1,0 +1,7 @@
+.comment-wrap .row {
+  padding: 5px;
+}
+
+.comment-wrap .row input {
+  width: 20em;   
+}

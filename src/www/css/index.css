@@ -71,3 +71,10 @@
 .aside-art-list li {
   text-overflow: ellipsis;
 }
+
+.title-h3 {
+  background-color: #337ab7;
+  color: #fefefe;
+  height: 1.8em;
+  font-weight: bolder;
+}
