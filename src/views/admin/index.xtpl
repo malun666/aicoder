@@ -10,6 +10,9 @@
 <div class="container">
   admin index
 </div>
+<div>
+  {{ UserName }} -  {{ Password }}
+</div>
 
 <script type="text/javascript">
   $(function () {

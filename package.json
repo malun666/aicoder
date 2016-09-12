@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "body-parser": "~1.13.2",
+    "connect": "^3.5.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "~1.3.5",
     "debug": "~2.2.0",
@@ -20,7 +21,7 @@
     "passport": "^0.3.2",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
-    "serve-favicon": "~23.0",
+    "serve-favicon": "~2.3.0",
     "ueditor": "^1.1.1",
     "xtemplate": "^4.5.1",
     "xtpl": "^3.2.0"

@@ -24,4 +24,9 @@ module.exports = function() {
     }
   } );
   /*=====  End of 链接mongodb  ======*/
+
+
+  /**
+   * 身份登录验证处理
+   */
 };

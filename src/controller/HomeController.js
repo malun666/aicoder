@@ -1,4 +1,4 @@
-const BlogsController = require('./BlogsController');
+const BlogController = require('./BlogController');
 
 var HomeController = {};
 
@@ -18,6 +18,6 @@ HomeController.registRouter = function (app) {
     res.render('about', {});
   });
  
-  app.get('/', BlogsController.index);
+  app.get('/', BlogController.index);
 }
 module.exports = HomeController;

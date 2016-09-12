@@ -1,4 +1,4 @@
-const BlogsCommentController = require('./BlogsController');
+const BlogsCommentController = require('./BlogController');
 
 const express = require('express');
 const router = express.Router();

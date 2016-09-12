@@ -1,15 +1,18 @@
 
 const User = require('../datamodel/user');
+const session = require('express-session');
 
 var AdminController = {};
 
 // 注册路由信息
 AdminController.registRouter = function (app) {
   /**
-   * 注册  get  /admin/index.html
+   * 后台  get  /admin/index.html
    */
   app.get('/admin/index.html', function (req, res, next) {
-    res.render('admin/index');
+    console.log(req.session.passport.user);
+    
+    res.render('admin/index', req.session.passport.user);
   });
 
   /**
@@ -17,8 +20,9 @@ AdminController.registRouter = function (app) {
    * get /admin
    */
   app.get('/admin/', function (req, res, next) {
-    res.render('admin/index');
+    console.log(req.session.passport.user);
+    res.render('admin/index', req.session.passport.user);
   });
- }
+}
 
 module.exports = AdminController;

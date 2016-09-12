@@ -22,9 +22,7 @@
       <input class="form-control" id="password" name="password" placeholder="密码" type="password"/>
      
     </div>
-  <button class="btn btn-success" type="submit">
-    登录
-  </button>
+  <input class="btn btn-success" value="登录" type="submit" />
    <a href="/regist" class="btn btn-success">
      注册
   </a>

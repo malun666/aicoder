@@ -1,5 +1,5 @@
 const express = require('express');
-const session = require('express-session')
+const session = require('express-session');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -7,11 +7,16 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cofig = require('./config');
 const ueditor = require('ueditor');
-
+const flash = require('connect-flash');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+// 路由加载器
 const routerLoader = require('./routes/routerLoader');
 
+// 用户身份验证
 const User = require('./datamodel/user')
 
+// 应用程序启动，只执行一次
 const preStart = require('./appstart');
 preStart();
 
@@ -21,6 +26,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'xtpl');
 
+app.use(flash());
 // uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'www', 'favicon.ico')));
 app.use(logger('dev'));
@@ -30,7 +36,43 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(cookieParser());
+// 启用session
+app.use(session({ secret: 'aicoder.com', cookie: { maxAge: 60000 } }));
+
+// 启动passport的验证
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'www')));
+
+// 身份验证处理 --- start
+passport.use('local', new LocalStrategy({passReqToCallBack : true},
+  function (username, password, done) {
+    console.log('login: ' + username + ' ' + password);
+    User.findOne({ 'UserName': username }, function (error, user) {
+      console.log( 'logon user:' + user);
+      if (error) {
+        return done(error);
+      }
+      if (!user) {
+        return done(null, false, { message: '用户名不存在.' });
+      }
+      if (user.Password != password ) {
+        return done(null, false, { message: '密码不匹配.' });
+      }
+      return done(null, user);
+    });
+  }
+));
+
+passport.serializeUser(function (user, done) {//保存user对象
+  done(null, user);//可以通过数据库方式操作
+});
+
+passport.deserializeUser(function (user, done) {//删除user对象
+  done(null, user);//可以通过数据库方式操作
+});
+// 身份验证处理 ---end
 
 // 注册所有的路由信息
 routerLoader(app);
@@ -62,10 +104,6 @@ app.use("/lib/ueditor/ue", ueditor(path.join(__dirname, 'www'), function (req, r
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  // var err = new Error( 'Not Found' );
-  // err.status = 404;
-  // next( err );
-
   res.redirect('/404.html');
 });
 

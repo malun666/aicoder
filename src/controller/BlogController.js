@@ -7,50 +7,50 @@ const logger = require('../common/log');
 const mongoose = require('mongoose');
 const htmlparserHelper = require('../common/htmlparserhelp');
 
-var BlogsController = {};
+var BlogController = {};
 
 // 设置路由信息
-BlogsController.registRouter = function (app) {
+BlogController.registRouter = function (app) {
   blogRoute.get('/add.html', function (req, res, next) {
     res.render('blogs/add', {
       title: '添加blog文章'
     });
   });
 
-  blogRoute.post('/add', BlogsController.add);
+  blogRoute.post('/add', BlogController.add);
 
   /*
    * 删除博客的功能页面
    * get  /blogs/del/4
    */
-  blogRoute.get('/del/:id.html', BlogsController.blog_show_del);
+  blogRoute.get('/del/:id.html', BlogController.blog_show_del);
 
   /**
    * 删除博客的功能页面
    * get  /blogs/del/4
    */
-  blogRoute.post('/del/:id', BlogsController.blog_del);
+  blogRoute.post('/del/:id', BlogController.blog_del);
 
   /**
    * 浏览博客的功能页面
    * get  /blogs/4
    */
-  blogRoute.get('/:id.html', BlogsController.blog_detail);
+  blogRoute.get('/:id.html', BlogController.blog_detail);
 
   /**
    * 修改博客的功能
    * get /blogs/edit/:id
    */
-  blogRoute.get('/edit/:id.html', BlogsController.blog_show_edit);
+  blogRoute.get('/edit/:id.html', BlogController.blog_show_edit);
 
   /**
    * 修改博客的功能页面
    *  post /blogs/edit/4
    */
-  blogRoute.post('/edit/:id', BlogsController.blog_edit);
-  blogRoute.get('/index.html', BlogsController.index);
+  blogRoute.post('/edit/:id', BlogController.blog_edit);
+  blogRoute.get('/index.html', BlogController.index);
 
-  blogRoute.get('/*', BlogsController.index)
+  blogRoute.get('/*', BlogController.index)
   // 所有未匹配的走当前首页
 
   app.use('/blogs/', blogRoute);
@@ -60,7 +60,7 @@ BlogsController.registRouter = function (app) {
 /*================================
 =            添加blog信息            =
 ================================*/
-BlogsController.add = function blogs_add(req, res, next) {
+BlogController.add = function blogs_add(req, res, next) {
   // res.json(req.body);
   //从请求中拿到所有到post来的数据，创建一个model对象。
   var blog = new Blog();
@@ -98,7 +98,7 @@ BlogsController.add = function blogs_add(req, res, next) {
 /*============================
 =            博客列表            =
 ============================*/
-BlogsController.index = function blogs_index(req, res, next) {
+BlogController.index = function blogs_index(req, res, next) {
   //通过MongoDb搜索
   Blog.where({ deleted: false }).find().limit(20).sort({ 'create_at': -1 }).exec(function (error, blogs) {
     if (error) {
@@ -133,7 +133,7 @@ BlogsController.index = function blogs_index(req, res, next) {
 /*================================
 =            显示单个博客页面            =
 ================================*/
-BlogsController.blog_detail = function (req, res, error) {
+BlogController.blog_detail = function (req, res, error) {
   Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
     if (error || !blog) {
       logger.log(error);
@@ -158,7 +158,7 @@ BlogsController.blog_detail = function (req, res, error) {
 /*================================
 =            处理用户删除blog           =
 ================================*/
-BlogsController.blog_del = function (req, res, error) {
+BlogController.blog_del = function (req, res, error) {
   Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
     if (error || !blog) {
       logger.log(error);
@@ -176,7 +176,7 @@ BlogsController.blog_del = function (req, res, error) {
 /*================================
 =            显示单个删除博客页面            =
 ================================*/
-BlogsController.blog_show_del = function (req, res, error) {
+BlogController.blog_show_del = function (req, res, error) {
   Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
     if (error || !blog) {
       logger.log(error);
@@ -191,7 +191,7 @@ BlogsController.blog_show_del = function (req, res, error) {
 /*================================
 =            显示单个修改博客页面            =
 ================================*/
-BlogsController.blog_show_edit = function (req, res, error) {
+BlogController.blog_show_edit = function (req, res, error) {
   Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
     if (error || !blog) {
       logger.log(error);
@@ -203,7 +203,7 @@ BlogsController.blog_show_edit = function (req, res, error) {
   });
 };
 
-BlogsController.blog_edit = function (req, res, error) {
+BlogController.blog_edit = function (req, res, error) {
   Blog.where({ '_id': req.params.id }).findOne(function (error, blog) {
     if (error || !blog) {
       logger.log(error);
@@ -220,4 +220,4 @@ BlogsController.blog_edit = function (req, res, error) {
   });
 };
 
-module.exports = BlogsController;
+module.exports = BlogController;

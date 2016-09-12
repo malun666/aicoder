@@ -1,8 +1,6 @@
 
 const User = require('../datamodel/user');
-const passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
-
+const passport = require('passport');
 
 var LoginController = {};
 
@@ -37,9 +35,14 @@ LoginController.registRouter = function (app) {
   /**
    * post /login  登录提交验证
    */
-  app.post('/login', function(req, res, next){
-
-  });
+  app.post('/login', passport.authenticate('local',
+    {
+      successRedirect: '/admin',
+      failureRedirect: '/login',
+      failureFlash: true
+    }), function (req, res, next) {
+      res.redirect('/admin');
+    });
 }
 
 module.exports = LoginController;
