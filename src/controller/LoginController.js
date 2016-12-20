@@ -23,26 +23,34 @@ LoginController.registRouter = function (app) {
     user.Password = req.body.password;
     user.UserName = req.body.username;
     user.save();
+    cosole.log(user);
     res.redirect('/Login');
   });
   /**
    * get  /login 登录处理 
    */
   app.get('/Login', function (req, res, next) {
-    res.render('admin/login');
+    res.render('admin/login', {last: req.query.last} );
   });
 
   /**
    * post /login  登录提交验证
    */
-  app.post('/login', passport.authenticate('local',
-    {
-      successRedirect: '/admin',
-      failureRedirect: '/login',
-      failureFlash: true
-    }), function (req, res, next) {
-      res.redirect('/admin');
-    });
+  // app.post('/login', passport.authenticate('local',
+  //   {
+  //     successRedirect: '/admin/#/index',
+  //     failureRedirect: '/login',
+  //     failureFlash: true
+  //   }), function (req, res, next) {
+  //     res.redirect('/admin/#/index');
+  //   });
+  app.post('/login', passport.authenticate('local'), function (req, res, next) {
+    if (req.query.last) {
+      res.redirect(req.query.last);
+    } else {
+      res.redirect('/admin/#/index');
+    }
+  });
 }
 
 module.exports = LoginController;

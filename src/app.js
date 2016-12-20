@@ -43,14 +43,12 @@ app.use(session({ secret: 'aicoder.com', cookie: { maxAge: 60000 } }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(express.static(path.join(__dirname, 'www')));
+app.use(express.static(path.join(__dirname, '../dist/www')));
 
 // 身份验证处理 --- start
-passport.use('local', new LocalStrategy({passReqToCallBack : true},
+passport.use('local', new LocalStrategy({ passReqToCallBack : true},
   function (username, password, done) {
-    console.log('login: ' + username + ' ' + password);
     User.findOne({ 'UserName': username }, function (error, user) {
-      console.log( 'logon user:' + user);
       if (error) {
         return done(error);
       }
@@ -96,7 +94,6 @@ app.use("/lib/ueditor/ue", ueditor(path.join(__dirname, 'www'), function (req, r
   }
   // 客户端发起其它请求
   else {
-
     res.setHeader('Content-Type', 'application/json');
     res.redirect('/lib/ueditor/nodejs/config.json');
   }

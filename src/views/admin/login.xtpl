@@ -3,12 +3,16 @@
 
 {{/block }}
 
+{{#block ('user')}}
+
+{{/block}}
+
 {{#block('body') }}
 <!--==========================
 =            添加用户            =
 ===========================-->
 <div class="container">
-  <form action="/Login" class="panel padding-em" method="post">
+  <form action="/Login?last={{last}}" class="panel padding-em" method="post">
     <div class="form-group">
       <label for="exampleInputEmail1">
         用户名

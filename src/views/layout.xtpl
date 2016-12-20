@@ -86,6 +86,11 @@
               </button>
             </form>
           </div>
+          <div class="nav navbar-nav navbar-right">
+           <div class="userinfo">
+             {{{ block('user') }}}
+           </div>
+          </div>
         </div>
         <!-- /.navbar-collapse  -->
       </div>

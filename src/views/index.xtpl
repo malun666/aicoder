@@ -6,6 +6,10 @@
 {{/block }}
 
 
+{{#block ('user')}}
+  <span>123</span>
+{{/block}}
+
 {{#block ('body')}}
 {{! --------头部的大幕区域--------start------ }}
 <div class="container head-wrap">
@@ -40,7 +44,7 @@
           {{this.content}}
         </p>
         <a target="_blank" href="/blogs/{{this._id}}.html"><span class="btn btn-primary">
-          查看原文
+          ☞查看原文
         </span></a>
         <hr/>
         <ul class="tag-list ulmain">
@@ -51,7 +55,6 @@
           <li><a target="_blank" href="">javascript</a></li>
           <li><a target="_blank" href="">前端</a></li>
           <li><a target="_blank" href="">HTML5</a></li>
-          
         </ul>
       </article>
     {{/each}}

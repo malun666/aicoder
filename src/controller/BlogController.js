@@ -111,7 +111,6 @@ BlogController.index = function blogs_index(req, res, next) {
       blogs[i].content = htmlparserHelper.paserHtml(e.content).slice(0, 50);
     });
 
-
     //查询所有的 最新的文章
     Blog.where({ deleted: false }).find().sort({ 'visit_count': -1 }).limit(10).exec(function (error, cursor) {
       if (error) {

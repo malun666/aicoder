@@ -8,7 +8,7 @@
       </li>
       {{#each(top)}}
       <li class="list-group-item">
-        <a target="_blank" href="/blogs/{{this._id}}">
+        <a class="temp" target="_blank" href="/blogs/{{ this._id + '.html' }}">
         {{this.title}}
         </a>
       </li>
