@@ -16,9 +16,9 @@ gulp.task('default', ['minify_css', 'minify_html', 'minify_js', 'auto', 'open'],
 });
 
 gulp.task('open',['copy'], function () {
-  gulp.src('./src/index.js').pipe(open({
-    uri: 'http://localhost:8088'
-  }));
+  // gulp.src('./src/index.js').pipe(open({
+  //   uri: 'http://localhost:8088'
+  // }));
 });
 //copy src目录下的所有文件到 dist目录下 命令
 gulp.task('copy', function () {
