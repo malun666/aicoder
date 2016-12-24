@@ -5,8 +5,8 @@
   "scripts": {
     "build": "webpack --display-error-details --progress --colors&gulp",
     "dev": "webpack --watch --display-error-details --progress --colors",
-    "start": "nodemon ./src/bin/www",
-    "mongodb": "mongod --dbpath ./dist/db/dbfiles --logpath ./dist/db/log/a.log --port 27097 --fork"
+    "start": "nodemon ./dist/bin/www",
+    "mongodb": "mongod --dbpath ./dbs/dbfiles --logpath ./dbs/log/ab.log --port 27097 --fork"
   },
   "dependencies": {
     "axios": "^0.15.3",
