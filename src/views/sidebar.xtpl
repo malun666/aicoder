@@ -6,6 +6,11 @@
       <li class="list-group-item active">
         <h4><i class="glyphicon glyphicon-th-list"></i>  最热文章推荐</h4>
       </li>
+      <li class="list-group-item">
+        <a class="temp" target="_blank" href="http://aicoder.com/vue/preview/all.html">
+        老马最新力作：最经典的Vue入门系列
+        </a>
+      </li>
       {{#each(top)}}
       <li class="list-group-item">
         <a class="temp" target="_blank" href="/blogs/{{ this._id + '.html' }}">

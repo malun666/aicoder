@@ -44,7 +44,7 @@
           {{this.content}}
         </p>
         <a target="_blank" href="/blogs/{{this._id}}.html"><span class="btn btn-primary">
-          ☞查看原文
+          ☞ &nbsp;查看原文
         </span></a>
         <hr/>
         <ul class="tag-list ulmain">
