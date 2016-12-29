@@ -34,7 +34,11 @@
     {{#each(items)}}
       <article class="panel main-article">
         <h2>
+          {{#if(this.isStatic)}}
+          <a href="{{this.staticUrl}}" >{{this.title}}</a>
+          {{else}}
           <a href="/blogs/{{this._id}}.html" >{{this.title}}</a>
+          {{/if}}
         </h2>
         <p>
           <span> 作者：{{this.author}}</span> • <span class="main-article-date">{{this.create_at}}</span>
@@ -43,9 +47,18 @@
         <p>
           {{this.content}}
         </p>
-        <a target="_blank" href="/blogs/{{this._id}}.html"><span class="btn btn-primary">
+
+        {{#if(this.isStatic)}}
+          <a target="_blank" href="{{this.staticUrl}}"><span class="btn btn-primary">
+          ☞ &nbsp;查看原文
+          </span>
+          </a>
+        {{else}}
+          <a target="_blank" href="/blogs/{{this._id}}.html"><span class="btn btn-primary">
           ☞ &nbsp;查看原文
         </span></a>
+        {{/if}}
+
         <hr/>
         <ul class="tag-list ulmain">
           <li>

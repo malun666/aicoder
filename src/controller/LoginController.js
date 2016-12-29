@@ -14,8 +14,8 @@ LoginController.registRouter = function (app) {
   });
 
   /**
-   * 处理用户注册的信息  
-   * post /regist   
+   * 处理用户注册的信息
+   * post /regist
    * 参数： username  password
    */
   app.post('/regist', function (req, res, next) {
@@ -23,11 +23,11 @@ LoginController.registRouter = function (app) {
     user.Password = req.body.password;
     user.UserName = req.body.username;
     user.save();
-    cosole.log(user);
+    // console.log(user);
     res.redirect('/Login');
   });
   /**
-   * get  /login 登录处理 
+   * get  /login 登录处理
    */
   app.get('/Login', function (req, res, next) {
     res.render('admin/login', {last: req.query.last} );

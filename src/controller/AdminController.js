@@ -11,7 +11,7 @@ AdminController.registRouter = function (app) {
    */
   // app.get('/admin/index.html', function (req, res, next) {
   //   console.log(req.session.passport.user);
-    
+
   //   res.render('admin/index', req.session.passport.user);
   // });
 
@@ -38,6 +38,10 @@ AdminController.registRouter = function (app) {
         order: 2
       }
     ]);
+  });
+
+  app.get('/admin/main', function (req, res, next) {
+    res.redirect('/admin/index.html');
   });
 }
 

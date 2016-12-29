@@ -1,6 +1,8 @@
 <template>
   <div>
     <nav class="navbar navbar-dark navbar-fixed-top">
+      <h3 class="main-title">老马博客后台管理系统</h3>
+      <p class="sub-title">生命在于分享，技术源于生命</p>
     </nav>
      <div class="col-md-3 sidebar">
       <ul>
@@ -42,6 +44,8 @@ export default {
 </script>
 
 <style>
+$top-nav-height: 50px;
+
 ul, li {
   list-style: none;
 }
@@ -50,11 +54,20 @@ ul, li {
 }
 
 .navbar {
-  height: 50px;
+  height: $top-nav-height;
   background-color: #303030;
+  color: #f9f9f9;
+}
+.navbar .main-title {
+  float: left;
+}
+.navbar .sub-title {
+  float: left;
+  margin-left: 20%;
+  margin-top: 20px;
 }
 .content {
-  margin-top: 50px;
+  margin-top: $top-nav-height;
   padding-left: 210px;
 }
 
@@ -67,7 +80,7 @@ ul, li {
 @media (min-width: 768px) {
   .sidebar {
     position: fixed;
-    top: 51px;
+    top: $top-nav-height + 1;
     bottom: 0;
     left: 0;
     z-index: 1000;

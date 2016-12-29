@@ -52,7 +52,8 @@ module.exports = {
   },
   vue:{
     loaders:{
-      js:'babel'
+      js:'babel',
+      css: 'style!css!sass'
     }
   },
   resolve: {

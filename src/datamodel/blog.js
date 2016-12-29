@@ -13,8 +13,10 @@ const BlogSchema = new Schema({
   reply_count: { type: Number, default: 0 },
   visit_count: { type: Number, default: 0 },
   create_at: { type: Date,default: Date.now },
-  update_at: { type: Date, default: Date.now },  
+  update_at: { type: Date, default: Date.now },
   deleted: {  type: Boolean, default: false },
+  isStatic: { type: Boolean, default: false },
+  staticUrl: { type: String },
   comment: {  type: Array }
 });
 

@@ -67,7 +67,8 @@ BlogController.add = function blogs_add(req, res, next) {
   blog.title = req.body.title;
   blog.content = req.body.content;
   blog.author = req.body.author;
-
+  blog.isStatic = req.body.isStatic;
+  blog.staticUrl = req.body.staticUrl;
   var tagsStr = req.body.tag;// 拿到所有的tag标签： 老师,go，老大，model,sdcard"
 
   // 拿到所有tag标签对应的 tag字符串数组
